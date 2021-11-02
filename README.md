@@ -20,4 +20,4 @@ request - Search Videos
 ### Deploy to Heroku
 Click Below Button to Deploy to Heroku:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Moviesbazar/Missmariya.git)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Moviesbazar/Pdisk_searchbot)

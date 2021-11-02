@@ -51,14 +51,14 @@ PDiskBot = Client(
 
 @PDiskBot.on_message(filters.command("start") & ~filters.edited)
 async def start_handler(_, m: Message):
-    await m.reply_text("Hi, I am Alive!\n\nSearch using /request command.", quote=True)
+    await m.reply_text("**😎Hi, I am Alive!\n\nSearch using /request command.🔎**", quote=True)
 
 
 @PDiskBot.on_message(filters.command("request", prefixes=["#", "/"]) & ~filters.edited, group=-1)
 async def text_handler(_, m: Message):
     if len(m.command) < 2:
-        return await m.reply_text("Search Query Missing!")
-    editable = await m.reply_text("Please Wait ...", quote=True)
+        return await m.reply_text("**🔎Search Query Missing!**")
+    editable = await m.reply_text("**🙏Please Wait ...**", quote=True)
     response = await search_pdisk_videos(m.text.split(" ", 1)[-1], Configs.PDISK_USERNAME, Configs.PDISK_PASSWORD)
     if isinstance(response, Exception):
         traceback.print_exc()
@@ -78,9 +78,9 @@ async def text_handler(_, m: Message):
             if count > Configs.MAX_RESULTS:
                 break
             count += 1
-            text += f"**Title:** `{data[i]['title']}`\n" \
-                    f"**Description:** `{data[i]['description']}`\n" \
-                    f"**PDisk Link:** {Configs.PDISK_DOMAIN + 'share-video?videoid=' + data[i]['share_link'].split('=', 1)[-1]}\n\n"
+            text += f"**📂Title: `{data[i]['title']}`**\n" \
+                    f"**✅Description:** `{data[i]['description']}`\n" \
+                    f"**🔗PDisk Link:** {Configs.PDISK_DOMAIN + 'share-video?videoid=' + data[i]['share_link'].split('=', 1)[-1]}\n\n"
         try: await editable.edit(text, disable_web_page_preview=True)
         except MessageNotModified: pass
 
